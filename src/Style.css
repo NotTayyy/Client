@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+    line-height: 5px;
+    font-family: serif;
+    font-size: 100%
+}
+
+.userTemplate {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.nameAge {
+    line-height: 5px;
+    float: left;
+    display: flex;
+    justify-content: space-evenly;
+
+}
