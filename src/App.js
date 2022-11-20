@@ -48,7 +48,7 @@ function App() {
               </div>
             <br></br>
               <h1>Username: {user.username}</h1>
-              <h1>E-Mail: { user.email }</h1>
+              <h1>E-Mail: { user.email || "Nothing Found!"}</h1>
               {user.dateCreated ? (<p>Date Created: {user.dateCreated}</p> ) : (<br/>)}
               <button onClick={() => removeUser(user._id)}>DELETE USER</button>
             </div>
