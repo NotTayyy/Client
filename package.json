@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://NotTayyy.github.io/LearningMongoDB-Client",
+  "homepage": "https://nottayyy.github.io/LearningMongoDB-Client",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
