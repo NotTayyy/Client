@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/LearningMongoDB-Client/static/css/main.147e9bff.css",
-    "main.js": "/LearningMongoDB-Client/static/js/main.3a1a4c3a.js",
+    "main.js": "/LearningMongoDB-Client/static/js/main.1b74a339.js",
     "index.html": "/LearningMongoDB-Client/index.html",
     "main.147e9bff.css.map": "/LearningMongoDB-Client/static/css/main.147e9bff.css.map",
-    "main.3a1a4c3a.js.map": "/LearningMongoDB-Client/static/js/main.3a1a4c3a.js.map"
+    "main.1b74a339.js.map": "/LearningMongoDB-Client/static/js/main.1b74a339.js.map"
   },
   "entrypoints": [
     "static/css/main.147e9bff.css",
-    "static/js/main.3a1a4c3a.js"
+    "static/js/main.1b74a339.js"
   ]
 }
