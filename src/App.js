@@ -3,16 +3,13 @@ import axios from 'axios';
 import './Style.css'
 
 function App() {
-  const [userList, setUserList] = useState([]);
-  const [name, setName] = useState([""])
-  const [age, setAge] = useState([0])
-  const [username, setUsername] = useState([""])
-  const [email, setEmail] = useState([""])
 
   const nameRef = useRef();
   const ageRef = useRef();
   const usernameRef = useRef();
-  const mailRef = useRef();
+  const emailRef = useRef();
+
+  const [userList, setUserList] = useState([]);
 
   useEffect(() => {
     axios.get('https://54piqmbh53.execute-api.us-east-2.amazonaws.com/users').then((res) => {
@@ -21,13 +18,16 @@ function App() {
   }, []);
 
   const createUser = () => {
-    axios.post("https://54piqmbh53.execute-api.us-east-2.amazonaws.com/users/new", {name: name, age: age, username: username, email: email}).then((res) => {
-      setUserList([...userList, {name: name, age: age, username: username, email: email}])
+    axios.post("https://54piqmbh53.execute-api.us-east-2.amazonaws.com/users/new", {name: nameRef.current.value, age: ageRef.current.value, username: usernameRef.current.value, email: emailRef.current.value}).then((res) => {
+      setUserList([...userList, {name: nameRef.current.value, age: ageRef.current.value, username: usernameRef.current.value, email: emailRef.current.value}])
+      .then(() => {
+        nameRef.current.value=null;
+        ageRef.current.value=null;
+        usernameRef.current.value=null;
+        emailRef.current.value=null;
+      })
     });
-    nameRef.current.value=null;
-    ageRef.current.value=null;
-    usernameRef.current.value=null;
-    mailRef.current.value=null;
+
   };
 
   const removeUser = (id) => {
@@ -35,7 +35,7 @@ function App() {
       const newList = userList.filter(userList => userList._id !== id);
       setUserList(newList)
   })}
- 
+
   return (
     <>
       <div className='userDisplay'>
@@ -58,10 +58,10 @@ function App() {
 
       <div className="userSubmit">
         <div>
-          <input ref={nameRef} type="text" placeholder="Name..." onChange={(e) => setName(e.target.value)}/>
-          <input ref={ageRef} type="number" placeholder="Age..." onChange={(e) => setAge(e.target.value)}/>
-          <input ref={usernameRef} type="text" placeholder="Username..." onChange={(e) => setUsername(e.target.value)}/>
-          <input ref={mailRef} type="text" placeholder="E-Mail..." onChange={(e) => setEmail(e.target.value.toLowerCase())}/>
+          <input ref={nameRef} type="text" placeholder="Name..."/>
+          <input ref={ageRef} type="number" placeholder="Age..." />
+          <input ref={usernameRef} type="text" placeholder="Username..."/>
+          <input ref={emailRef} type="email" placeholder="E-Mail..."/>
         </div>
         <button onClick={createUser}> Create User </button>
       </div>
