@@ -15,13 +15,13 @@ function App() {
   const mailRef = useRef();
 
   useEffect(() => {
-    axios.get('http://localhost:4000/users').then((res) => {
+    axios.get('https://54piqmbh53.execute-api.us-east-2.amazonaws.com/users').then((res) => {
       setUserList(res.data);
     })
   }, []);
 
   const createUser = () => {
-    axios.post("http://localhost:4000/users/new", {name: name, age: age, username: username, email: email}).then((res) => {
+    axios.post("https://54piqmbh53.execute-api.us-east-2.amazonaws.com/users/new", {name: name, age: age, username: username, email: email}).then((res) => {
       setUserList([...userList, {name: name, age: age, username: username, email: email}])
     });
     nameRef.current.value=null;
@@ -31,7 +31,7 @@ function App() {
   };
 
   const removeUser = (id) => {
-    axios.delete("http://localhost:4000/users/remove", {data: {id: id}}).then((res) => {
+    axios.delete("https://54piqmbh53.execute-api.us-east-2.amazonaws.com/users/remove", {data: {id: id}}).then((res) => {
       const newList = userList.filter(userList => userList._id !== id);
       setUserList(newList)
   })}
